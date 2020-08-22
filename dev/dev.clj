@@ -9,6 +9,7 @@
    [com.reducecombine.crud-demo.system]
    [com.stuartsierra.component.repl :refer [reset set-init start stop system]]
    [criterium.core :refer [quick-bench]]
+   [dev.templates :refer [new-model]]
    [formatting-stack.branch-formatter :refer [format-and-lint-branch! lint-branch!]]
    [formatting-stack.component]
    [formatting-stack.processors.test-runner :refer [test!]]

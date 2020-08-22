@@ -1,4 +1,4 @@
-(ns com.reducecombine.crud-demo.widgets.protocols.querying
+(ns com.reducecombine.crud-demo.{{model_name_plural}}.protocols.querying
   "These are protocols for allowing a datomic<->psql swap"
   (:refer-clojure :exclude [find])
   (:require
@@ -7,21 +7,11 @@
 
 (require '[com.reducecombine.crud-demo.spec-helpers :refer [result-of]])
 
-(spec/def ::widget map?)
+(spec/def ::{{model_name_singular}} map?)
 
-(spec/def ::all (spec/coll-of ::widget))
-
-(spec/def ::count-all nat-int?)
-
-(spec/def ::find ::widget)
+(spec/def ::find ::{{model_name_singular}})
 
 (speced/defprotocol Querying
   ""
-  (^{::speced/spec (result-of ::all)} all [_ request-context]
-    "")
-
-  (^{::speced/spec (result-of ::count-all)} count-all [_ request-context]
-    "")
-
   (^{::speced/spec (result-of ::find)} find [_ request-context id]
     ""))

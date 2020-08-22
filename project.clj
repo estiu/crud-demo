@@ -14,7 +14,8 @@
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/java.jdbc "0.7.6"]
                  [prismatic/schema "1.1.9" #_"For juxt.modular/postgres"]
-                 [ring/ring-core "1.8.0"]]
+                 [ring/ring-core "1.8.0"]
+                 [stencil "0.5.0"]]
 
   :description "crud-demo"
 
