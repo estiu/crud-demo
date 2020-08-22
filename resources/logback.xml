@@ -21,7 +21,7 @@
     </rollingPolicy>
 
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-      <level>DEBUG</level>
+      <level>INFO</level>
     </filter>
     <!-- Safely log to the same file from multiple JVMs. Degrades performance! -->
     <prudent>true</prudent>
@@ -35,7 +35,7 @@
       <pattern>%-5level %logger{36} - %msg%n</pattern>
     </encoder>
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-      <level>DEBUG</level>
+      <level>INFO</level>
     </filter>
   </appender>
 
@@ -43,9 +43,9 @@
     <appender-ref ref="FILE" />
   </root>
 
-  <logger name="io.pedestal" level="ALL" />
+  <logger name="io.pedestal" level="WARN" />
   <logger name="org.apache.kafka.clients" level="WARN" />
-  <logger name="org.eclipse.jetty" level="ALL" />
+  <logger name="org.eclipse.jetty" level="WARN" />
   <logger name="datomic.process-monitor" level="WARN" />
   <logger name="datomic.kv-cluster" level="WARN" />
 </configuration>

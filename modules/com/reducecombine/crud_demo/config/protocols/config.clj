@@ -10,4 +10,4 @@
   "Getters for this app's most used paths."
   (^::config/value value [this] "The whole config map")
   (^pos-int? server-port [this] "port to bind webserver to")
-  (^string? server-address [this] "addres to bind webserver to"))
+  (^string? server-address [this] "address to bind webserver to"))
