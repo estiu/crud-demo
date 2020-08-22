@@ -5,13 +5,14 @@
    [com.reducecombine.crud-demo.config.kws :as config]
    [com.reducecombine.crud-demo.config.pedestal-adapter :as config.pedestal-adapter]
    [com.reducecombine.crud-demo.environment.kws :as environment]
-   [com.reducecombine.crud-demo.persistence.components.dummy :as persistence.components.dummy]
+   [com.reducecombine.crud-demo.persistence.components.sql :as persistence.components.sql]
    [com.reducecombine.crud-demo.persistence.kws :as persistence]
    [com.reducecombine.crud-demo.router.component :as router.component]
    [com.reducecombine.crud-demo.router.kws :as com.reducecombine.crud-demo.router]
    [com.reducecombine.crud-demo.widgets.component :as widgets.component]
    [com.reducecombine.crud-demo.widgets.kws :as widgets]
    [com.stuartsierra.component :as component]
+   [modular.postgres]
    [nedap.components.pedestal.interceptors.component-injector :refer [component-injector]]
    [nedap.components.pedestal.router.kws :as components.pedestal.router]
    [nedap.components.pedestal.server.component :as server.component]
@@ -48,7 +49,11 @@
          ::environment/component                environment
          ::config/component                     (-> (config.component/new)
                                                     (component/using config/dependencies))
-         ::persistence/component                (persistence.components.dummy/new)
+         ::persistence/component                (-> (persistence.components.sql/new)
+                                                    (component/using persistence/dependencies))
+         ::persistence/db-component             (modular.postgres/map->Postgres {:url      "jdbc:postgresql:ebdb"
+                                                                                 :user     "root"
+                                                                                 :password ""})
          ::components.pedestal.router/component (-> (router.component/new component-interceptors)
                                                     (component/using com.reducecombine.crud-demo.router/dependencies))
 

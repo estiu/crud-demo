@@ -15,7 +15,6 @@
 
 (def home-page
   [(fn [request]
-     (-> request pr-str println)
      (response "Hello World!"))])
 
 (defn common-interceptors [component-interceptors]

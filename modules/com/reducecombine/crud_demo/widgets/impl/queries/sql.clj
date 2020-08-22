@@ -17,6 +17,10 @@
                     :as         request-context} id]
   (if (-> request-context :user :id #{42})
     {:errors "Bad user"}
-    (-> persistence (querying/query {:select [:*]
-                                     :from   [:users]
-                                     :where  [:= :id id]}))))
+    (let [{:keys [result errors]} (time (-> persistence
+                                            (querying/query {:select [:*]
+                                                             :from   [:users]
+                                                             :where  [:= :id id]})))]
+      (if result
+        {:result (-> result first)}
+        errors))))

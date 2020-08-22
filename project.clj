@@ -1,16 +1,19 @@
 ;; Please don't bump the library version by hand - use ci.release-workflow instead.
 (defproject com.reducecombine/crud-demo "unreleased"
   ;; Please keep the dependencies sorted a-z.
-  :dependencies [[org.clojure/clojure "1.10.1"]
-                 [com.nedap.staffing-solutions/speced.def "2.0.0"]
-                 [com.stuartsierra/component "1.0.0"]
-                 [aero "1.1.6"]
+  :dependencies [[aero "1.1.6"]
                  [cheshire "5.10.0"]
                  [com.fasterxml.jackson.core/jackson-databind "2.10.2"]
-                 [com.nedap.staffing-solutions/components.pedestal "1.1.0"
-                  :exclusions [io.pedestal/pedestal.jetty]]
+                 [com.nedap.staffing-solutions/components.pedestal "1.1.0" :exclusions [io.pedestal/pedestal.jetty]]
+                 [com.nedap.staffing-solutions/speced.def "2.0.0"]
                  [com.nedap.staffing-solutions/utils.modular "2.2.0-alpha3"]
+                 [com.stuartsierra/component "1.0.0"]
+                 [honeysql "0.9.4"]
                  [io.pedestal/pedestal.jetty "0.5.5" #_"Higher versions trigger GeneralSSL error"]
+                 [juxt.modular/postgres "0.0.1-SNAPSHOT"]
+                 [org.clojure/clojure "1.10.1"]
+                 [org.clojure/java.jdbc "0.7.6"]
+                 [prismatic/schema "1.1.9" #_"For juxt.modular/postgres"]
                  [ring/ring-core "1.8.0"]]
 
   :description "crud-demo"

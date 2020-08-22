@@ -2,4 +2,8 @@
   (:require
    [clojure.spec.alpha :as spec]))
 
+(spec/def ::db-component some?)
+
 (spec/def ::component some?)
+
+(def dependencies [::db-component])
