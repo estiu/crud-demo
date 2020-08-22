@@ -1,0 +1,7 @@
+{:server   {:port    #profile {:dev        8080
+                               :test       8081
+                               :production 80}
+            :address #profile {:default "localhost"}}
+ :hostname #profile {:dev        "localhost"
+                     :test       "example.test"
+                     :production "example.com"}}
